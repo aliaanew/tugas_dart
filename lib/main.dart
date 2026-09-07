@@ -37,11 +37,7 @@ class Menu {
   final String price;
   final String imageUrl;
 
-  Menu({
-    required this.name,
-    required this.price,
-    required this.imageUrl,
-  });
+  Menu({required this.name, required this.price, required this.imageUrl});
 }
 
 // ============================================================
@@ -60,28 +56,24 @@ final Restaurant restaurant = Restaurant(
       'Menyajikan berbagai hidangan khas Nusantara dengan bumbu rempah '
       'autentik. Suasana nyaman dan hangat, cocok untuk bersantap bersama '
       'keluarga maupun teman.',
-  imageUrl:
-      'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80',
 );
 
 final List<Menu> menus = [
   Menu(
     name: 'Nasi Goreng Spesial',
     price: 'Rp 38.000',
-    imageUrl:
-        'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80',
   ),
   Menu(
     name: 'Ayam Bakar',
     price: 'Rp 45.000',
-    imageUrl:
-        'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80',
   ),
   Menu(
     name: 'Sate Nusantara',
     price: 'Rp 35.000',
-    imageUrl:
-        'https://images.unsplash.com/photo-1529563021893-cc83c992d75d?auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1529563021893-cc83c992d75d?auto=format&fit=crop&w=800&q=80',
   ),
 ];
 
@@ -98,9 +90,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Detail Restoran',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepOrange,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
       home: const DetailRestaurantPage(),
@@ -120,12 +110,7 @@ class DetailRestaurantPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(restaurant.name),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share),
-          ),
-        ],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.share))],
       ),
 
       body: SingleChildScrollView(
@@ -146,26 +131,19 @@ class DetailRestaurantPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Informasi utama
-                  RestaurantInfo(
-                    restaurant: restaurant,
-                  ),
+                  RestaurantInfo(restaurant: restaurant),
 
                   const SizedBox(height: 16),
 
                   // Statistik
-                  RestaurantStatistics(
-                    restaurant: restaurant,
-                  ),
+                  RestaurantStatistics(restaurant: restaurant),
 
                   const SizedBox(height: 16),
 
                   // Deskripsi
                   const Text(
                     'Deskripsi Restoran',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
 
                   const SizedBox(height: 8),
@@ -174,10 +152,7 @@ class DetailRestaurantPage extends StatelessWidget {
                     restaurant.description,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
+                    style: const TextStyle(fontSize: 14, height: 1.5),
                   ),
 
                   const SizedBox(height: 24),
@@ -185,10 +160,7 @@ class DetailRestaurantPage extends StatelessWidget {
                   // Menu populer
                   const Text(
                     'Menu Populer',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
 
                   const SizedBox(height: 12),
@@ -215,8 +187,7 @@ class DetailRestaurantPage extends StatelessWidget {
         label: const Text('Reservasi Sekarang'),
       ),
 
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
@@ -228,10 +199,7 @@ class DetailRestaurantPage extends StatelessWidget {
 class RestaurantInfo extends StatelessWidget {
   final Restaurant restaurant;
 
-  const RestaurantInfo({
-    super.key,
-    required this.restaurant,
-  });
+  const RestaurantInfo({super.key, required this.restaurant});
 
   @override
   Widget build(BuildContext context) {
@@ -242,11 +210,7 @@ class RestaurantInfo extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(
-            blurRadius: 8,
-            offset: Offset(0, 3),
-            color: Colors.black12,
-          ),
+          BoxShadow(blurRadius: 8, offset: Offset(0, 3), color: Colors.black12),
         ],
       ),
       child: Column(
@@ -254,27 +218,18 @@ class RestaurantInfo extends StatelessWidget {
         children: [
           Text(
             restaurant.name,
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
 
           const SizedBox(height: 8),
 
           Row(
             children: [
-              const Icon(
-                Icons.star,
-                color: Colors.orange,
-                size: 20,
-              ),
+              const Icon(Icons.star, color: Colors.orange, size: 20),
               const SizedBox(width: 4),
               Text(
                 restaurant.rating.toString(),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -294,18 +249,12 @@ class RestaurantInfo extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.location_on,
-                size: 20,
-                color: Colors.grey,
-              ),
+              const Icon(Icons.location_on, size: 20, color: Colors.grey),
               const SizedBox(width: 4),
               Expanded(
                 child: Text(
                   restaurant.address,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                  ),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ),
             ],
@@ -322,10 +271,7 @@ class RestaurantInfo extends StatelessWidget {
 class RestaurantStatistics extends StatelessWidget {
   final Restaurant restaurant;
 
-  const RestaurantStatistics({
-    super.key,
-    required this.restaurant,
-  });
+  const RestaurantStatistics({super.key, required this.restaurant});
 
   @override
   Widget build(BuildContext context) {
@@ -336,11 +282,7 @@ class RestaurantStatistics extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(
-            blurRadius: 8,
-            offset: Offset(0, 3),
-            color: Colors.black12,
-          ),
+          BoxShadow(blurRadius: 8, offset: Offset(0, 3), color: Colors.black12),
         ],
       ),
       child: Row(
@@ -348,69 +290,45 @@ class RestaurantStatistics extends StatelessWidget {
         children: [
           Column(
             children: [
-              const Icon(
-                Icons.near_me,
-                color: Colors.deepOrange,
-              ),
+              const Icon(Icons.near_me, color: Colors.deepOrange),
               const SizedBox(height: 4),
               Text(
                 restaurant.distance,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const Text(
                 'Jarak',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
           ),
 
           Column(
             children: [
-              const Icon(
-                Icons.access_time,
-                color: Colors.deepOrange,
-              ),
+              const Icon(Icons.access_time, color: Colors.deepOrange),
               const SizedBox(height: 4),
               Text(
                 restaurant.openingHours,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const Text(
                 'Waktu Buka',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
           ),
 
           Column(
             children: [
-              const Icon(
-                Icons.payments,
-                color: Colors.deepOrange,
-              ),
+              const Icon(Icons.payments, color: Colors.deepOrange),
               const SizedBox(height: 4),
               Text(
                 restaurant.averagePrice,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const Text(
                 'Rata-rata',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
           ),
@@ -427,10 +345,7 @@ class RestaurantStatistics extends StatelessWidget {
 class MenuCard extends StatelessWidget {
   final Menu menu;
 
-  const MenuCard({
-    super.key,
-    required this.menu,
-  });
+  const MenuCard({super.key, required this.menu});
 
   @override
   Widget build(BuildContext context) {
@@ -444,10 +359,7 @@ class MenuCard extends StatelessWidget {
           children: [
             // Gambar
             Positioned.fill(
-              child: Image.network(
-                menu.imageUrl,
-                fit: BoxFit.cover,
-              ),
+              child: Image.network(menu.imageUrl, fit: BoxFit.cover),
             ),
 
             // Lapisan gelap agar teks terlihat
